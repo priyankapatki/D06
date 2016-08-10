@@ -14,11 +14,41 @@
 # Imports
 
 # Body
+def has_no_e(word):
+    if 'e' not in word:
+        return True
+    else:
+        return False
+
+def count_lines(file_name):
+    with open(file_name, 'r') as f:
+        total_lines = len(f.readlines())
+        return total_lines
+
+
+def print_no_e(file_name):
+    with open(file_name, 'r') as f:
+        count = 0
+        line = f.readline()
+        #total_words = len(f.readlines())
+        for line in f:
+            return_value = has_no_e(line)
+            if return_value == True:
+                print(line.strip('\n') + '%')
+                count += 1
+
+    total_words = count_lines(file_name)
+
+    print('Number of approved words = {}'.format(count))
+    print('Total number of words = {}'.format(total_words))
+    percent_words = (count/total_words) * 100
+    print('Percentage of approved words = {}'.format(percent_words))
 
 
 ##############################################################################
 def main():
-    pass  # Call your function(s) here.
+      # Call your function(s) here
+    print_no_e('words.txt')
 
 if __name__ == '__main__':
     main()

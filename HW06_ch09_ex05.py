@@ -16,11 +16,33 @@
 # Imports
 
 # Body
+def uses_all(word, letter_str):
+    for letter in letter_str:
+        if letter not in  word:
+            return False
+    else:
+        return True
+
+def vowel(filename, word):
+    with open(filename, 'r') as f:
+        word = word.split(',')
+        line = f.readline()
+        count = 0
+
+        for line in f:
+            if uses_all(line, word) == True:
+                count += 1
+
+        print('# of words that use all {}: {}'.format((word),repr(count)))
 
 
 ##############################################################################
 def main():
-    pass  # Call your function(s) here.
+     # Call your function(s) here.
+     vowel('words.txt', 'a,e,i,o,u')
+     vowel('words.txt', 'a,e,i,o,u,y')
+
+
 
 if __name__ == '__main__':
     main()
